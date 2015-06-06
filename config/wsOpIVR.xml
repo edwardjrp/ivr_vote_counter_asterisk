@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wMod_DidCHeck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vDID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wMod_DidCHeckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wMod_DidCHeckResult" type="tns:CDIDCheckRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CDIDCheckRet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PersonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecintoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecintoDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOk" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="wMod_CheckRecintoColegio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecintoId" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="IVRCodColegio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wMod_CheckRecintoColegioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wMod_CheckRecintoColegioResult" type="tns:CRecintoColegioCheckRet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CRecintoColegioCheckRet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecintoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColegioId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOk" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="wMod1_ProcessVoter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecintoId" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="ColegioId" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="PadronNum" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="DIDNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wMod1_ProcessVoterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wMod1_ProcessVoterResult" type="tns:CResultType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CResultType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOk" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="wMod3_ProcessColegio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vData" type="tns:CMod3ColegioResInput" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CMod3ColegioResInput">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ColegioId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VEmitidos" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="VNulos" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="VObservados" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="VValidos" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" type="tns:ArrayOfShort" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShort">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="short" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="wMod3_ProcessColegioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wMod3_ProcessColegioResult" type="tns:CResultType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="wMod_DidCHeckSoapIn">
+    <wsdl:part name="parameters" element="tns:wMod_DidCHeck" />
+  </wsdl:message>
+  <wsdl:message name="wMod_DidCHeckSoapOut">
+    <wsdl:part name="parameters" element="tns:wMod_DidCHeckResponse" />
+  </wsdl:message>
+  <wsdl:message name="wMod_CheckRecintoColegioSoapIn">
+    <wsdl:part name="parameters" element="tns:wMod_CheckRecintoColegio" />
+  </wsdl:message>
+  <wsdl:message name="wMod_CheckRecintoColegioSoapOut">
+    <wsdl:part name="parameters" element="tns:wMod_CheckRecintoColegioResponse" />
+  </wsdl:message>
+  <wsdl:message name="wMod1_ProcessVoterSoapIn">
+    <wsdl:part name="parameters" element="tns:wMod1_ProcessVoter" />
+  </wsdl:message>
+  <wsdl:message name="wMod1_ProcessVoterSoapOut">
+    <wsdl:part name="parameters" element="tns:wMod1_ProcessVoterResponse" />
+  </wsdl:message>
+  <wsdl:message name="wMod3_ProcessColegioSoapIn">
+    <wsdl:part name="parameters" element="tns:wMod3_ProcessColegio" />
+  </wsdl:message>
+  <wsdl:message name="wMod3_ProcessColegioSoapOut">
+    <wsdl:part name="parameters" element="tns:wMod3_ProcessColegioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsOpIVRSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="wMod_DidCHeck">
+      <wsdl:input message="tns:wMod_DidCHeckSoapIn" />
+      <wsdl:output message="tns:wMod_DidCHeckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="wMod_CheckRecintoColegio">
+      <wsdl:input message="tns:wMod_CheckRecintoColegioSoapIn" />
+      <wsdl:output message="tns:wMod_CheckRecintoColegioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="wMod1_ProcessVoter">
+      <wsdl:input message="tns:wMod1_ProcessVoterSoapIn" />
+      <wsdl:output message="tns:wMod1_ProcessVoterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="wMod3_ProcessColegio">
+      <wsdl:input message="tns:wMod3_ProcessColegioSoapIn" />
+      <wsdl:output message="tns:wMod3_ProcessColegioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsOpIVRSoap" type="tns:wsOpIVRSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod_DidCHeck">
+      <soap:operation soapAction="http://tempuri.org/wMod_DidCHeck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod_CheckRecintoColegio">
+      <soap:operation soapAction="http://tempuri.org/wMod_CheckRecintoColegio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod1_ProcessVoter">
+      <soap:operation soapAction="http://tempuri.org/wMod1_ProcessVoter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod3_ProcessColegio">
+      <soap:operation soapAction="http://tempuri.org/wMod3_ProcessColegio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsOpIVRSoap12" type="tns:wsOpIVRSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod_DidCHeck">
+      <soap12:operation soapAction="http://tempuri.org/wMod_DidCHeck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod_CheckRecintoColegio">
+      <soap12:operation soapAction="http://tempuri.org/wMod_CheckRecintoColegio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod1_ProcessVoter">
+      <soap12:operation soapAction="http://tempuri.org/wMod1_ProcessVoter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wMod3_ProcessColegio">
+      <soap12:operation soapAction="http://tempuri.org/wMod3_ProcessColegio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsOpIVR">
+    <wsdl:port name="wsOpIVRSoap" binding="tns:wsOpIVRSoap">
+      <soap:address location="http://209.61.136.107:8085/wsOpIVR.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsOpIVRSoap12" binding="tns:wsOpIVRSoap12">
+      <soap12:address location="http://209.61.136.107:8085/wsOpIVR.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
